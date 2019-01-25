@@ -36,7 +36,7 @@ if not have_getentropy
 
   if not getrandom
     code = '''#include <stdio.h>
-    int main() { return fopen("/dev/urandom", "r") ? 0 : 1; }
+    int main() { return fopen("/dev/urandom", "re") ? 0 : 1; }
     '''
     urandom = cc.run(code, name: 'can open /dev/urandom').returncode() == 0
     conf_data.set('ENT_URANDOM', urandom)
