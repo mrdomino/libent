@@ -2,7 +2,6 @@ project('libent', 'c', version: '0.2.1', license: 'MIT')
 
 inc = include_directories('include')
 
-subdir('include')
 subdir('src')
 
 libent_dep = declare_dependency(
@@ -23,4 +22,5 @@ if get_option('ent_install')
     name: 'libent',
     description: 'getentropy shim',
   )
+  install_headers('include/ent.h')
 endif
