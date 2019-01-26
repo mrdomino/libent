@@ -55,6 +55,7 @@ libent = static_library(
   'ent',
   ent_sources,
   include_directories: inc,
-  c_args: ['-Wall', '-pedantic'],
+  c_args: ['-Wall', '-Wextra', '-pedantic'],
+  override_options: ['c_std=c89'],
   install: get_option('ent_install'),
 )
