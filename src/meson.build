@@ -26,7 +26,6 @@ endif
 
 if not have_getentropy
   code = '''#define _GNU_SOURCE
-  #include <asm/unistd.h>
   #include <unistd.h>
   #include <sys/syscall.h>
   int main() { return syscall(SYS_getrandom, (void*)0, 0, 0); }

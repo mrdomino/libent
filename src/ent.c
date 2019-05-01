@@ -14,7 +14,6 @@
   }
 
 #elif defined(ENT_GETRANDOM) || defined(ENT_URANDOM)
-# include <errno.h>
 # if defined(ENT_GETRANDOM)
 #   define _GNU_SOURCE
 #   include <unistd.h>
@@ -22,9 +21,10 @@
 # else
 #   include <stdio.h>
 # endif
+# include <errno.h>
 
   static int
-  _ent_fail()
+  _ent_fail(void)
   {
     errno = EIO;
     return -1;
@@ -51,7 +51,7 @@
       (void) fclose(f);
     }
 # endif
-    if (r != len)
+    if (r != (int)len)
       return _ent_fail();
     return 0;
   }
