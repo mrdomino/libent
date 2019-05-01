@@ -1,4 +1,4 @@
-project('libent', 'c', version: '0.2.1', license: 'MIT')
+project('libent', 'c', version: '0.2.2', license: 'MIT')
 
 inc = include_directories('include')
 
